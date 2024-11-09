@@ -1,2 +1,61 @@
-<h1>Welcome to the Love & Passion flowers site</h1>
-<p>This is the main page of our application.</p>
+<div class="container mx-auto py-8 px-4">
+  <!-- Banner Section -->
+  <section class="banner bg-cover bg-center py-16 text-center">
+    <h1 class="text-5xl font-bold mb-4">Love and Passion</h1>
+    <p class="text-lg">Beautiful flower compositions for any occasion</p>
+  </section>
+
+  <!-- Portfolio Gallery Section -->
+  <section class="portfolio py-8">
+    <h2 class="text-3xl font-bold mb-6 text-center">Our Portfolio</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <%# You can loop through dynamic content or use static images here %>
+      <div class="portfolio-item">
+        <%= image_tag "example1.jpg", class: "w-full h-auto object-cover", alt: "Flower 1" %>
+      </div>
+      <div class="portfolio-item">
+        <%= image_tag "example2.jpg", class: "w-full h-auto object-cover", alt: "Flower 2" %>
+      </div>
+      <div class="portfolio-item">
+        <%= image_tag "example3.jpg", class: "w-full h-auto object-cover", alt: "Flower 3" %>
+      </div>
+    </div>
+  </section>
+
+  <!-- Order Form Section -->
+<!--  <section class="order-form bg-gray-100 py-8">-->
+<!--    <h2 class="text-3xl font-bold mb-6 text-center">Place an Order</h2>-->
+<!--    <div class="max-w-lg mx-auto">-->
+      <%#= form_with url: orders_path, method: :post, local: true, class: "space-y-4" do |f| %>
+<!--              <div>-->
+      <%#= f.label :name, "Your Name", class: "block text-sm font-medium text-gray-700" %>
+      <%#= f.text_field :name, class: "w-full px-3 py-2 border rounded-lg" %>
+<!--              </div>-->
+<!--              <div>-->
+      <%#= f.label :email, "Your Email", class: "block text-sm font-medium text-gray-700" %>
+      <%#= f.email_field :email, class: "w-full px-3 py-2 border rounded-lg" %>
+<!--              </div>-->
+<!--              <div>-->
+      <%#= f.label :message, "Message", class: "block text-sm font-medium text-gray-700" %>
+      <%#= f.text_area :message, class: "w-full px-3 py-2 border rounded-lg" %>
+<!--              </div>-->
+<!--              <div>-->
+      <%#= f.submit "Send Order", class: "w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700" %>
+<!--              </div>-->
+      <%# end %>
+<!--    </div>-->
+<!--  </section>-->
+
+  <!-- Contact Section -->
+  <section class="contact py-8">
+    <h2 class="text-3xl font-bold mb-6 text-center">Contact Us</h2>
+    <div class="text-center">
+      <p>Email: example@mail.com</p>
+      <p>Phone: +38 (099) 123-45-67</p>
+      <div class="social-links mt-4">
+        <a href="https://www.instagram.com" class="text-blue-500">Instagram</a> |
+        <a href="https://www.facebook.com" class="text-blue-500">Facebook</a>
+      </div>
+    </div>
+  </section>
+</div>
