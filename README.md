@@ -4,7 +4,11 @@ Love &amp; Passion flowers - advertising site
 [//]: # (Things you may want to cover:)
 [//]: # (* Ruby version)
 [//]: # (* System dependencies)
-[//]: # (* Configuration)
+
+* Configuration
+    - run server `bundle exec rails server`
+    - build assets `bundle exec rake assets:precompile`
+
 [//]: # (* Database creation)
 [//]: # (* Database initialization)
 [//]: # (* How to run the test suite)
