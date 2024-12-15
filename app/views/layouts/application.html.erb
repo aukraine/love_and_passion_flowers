@@ -13,6 +13,11 @@
 
   <body>
     <main class="container mx-auto mt-2 px-5 flex">
+      <% if flash[:notice] %>
+        <div data-controller="flash" class="fixed right-4 top-4 mb-4 z-[10000] flex items-center p-4 ml-4 overflow-hidden rounded-sm pointer-events-auto shadow-light dark:shadow-dark dark:hover:shadow-dark-hover flash bg-pink-100 text-pink-800 px-4 py-2">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
       <%= yield %>
     </main>
   </body>
