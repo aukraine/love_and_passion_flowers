@@ -6,7 +6,7 @@ Love &amp; Passion flowers - advertising site
 [//]: # (* System dependencies)
 
 * Configuration
-    - run server `bundle exec rails server`
+    - run server `bundle exec rails server` or `bin/dev`
     - build assets `bundle exec rake assets:precompile`
 
 [//]: # (* Database creation)
