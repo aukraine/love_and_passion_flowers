@@ -85,6 +85,14 @@ Rails.application.configure do
     read_timeout: 5
   }
 
+  # Exception Notification Configurations
+  Rails.application.config.middleware.use ExceptionNotification::Rack,
+    email: {
+      email_prefix: "[Love & Passion. Flowers] ",
+      sender_address: %{"Production - Error on Production Server" <love.and.passion.flowers@gmail.com>},
+      exception_recipients: %w[andrii.ukraiinets@gmail.com, love.and.passion.flowers@gmail.com]
+    }
+
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
