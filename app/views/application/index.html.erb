@@ -9,16 +9,11 @@
   <section class="portfolio py-8">
     <h2 class="text-3xl text-gray-700 font-bold mb-6 text-center">Our Portfolio</h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-      <%# You can loop through dynamic content or use static images here %>
-      <div class="portfolio-item">
-        <%= image_tag "example1.jpg", class: "w-full h-auto object-cover", alt: "Flower 1" %>
-      </div>
-      <div class="portfolio-item">
-        <%= image_tag "example2.jpg", class: "w-full h-auto object-cover", alt: "Flower 2" %>
-      </div>
-      <div class="portfolio-item">
-        <%= image_tag "example3.jpg", class: "w-full h-auto object-cover", alt: "Flower 3" %>
-      </div>
+      <% Bouquet.all.sample(3).each do |bouquet| %>
+        <div class="portfolio-item">
+          <%= image_tag bouquet.photos.first, class: "w-full h-auto object-cover", alt: bouquet.name %>
+        </div>
+      <% end %>
     </div>
   </section>
 

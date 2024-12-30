@@ -1,0 +1,17 @@
+<%= form_with model: @bouquet, local: true do |f| %>
+  <div>
+    <%= f.label :name, "Name" %>
+    <%= f.text_field :name, required: true %>
+  </div>
+  <div>
+    <%= f.label :description, "Description" %>
+    <%= f.text_area :description, required: true %>
+  </div>
+  <div>
+    <%= f.label :photos, "Upload Photos" %>
+    <%= f.file_field :photos, multiple: true, accept: "image/*" %>
+  </div>
+  <div>
+    <%= f.submit "Create Bouquet" %>
+  </div>
+<% end %>
