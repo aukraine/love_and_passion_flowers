@@ -14,7 +14,7 @@ class BouquetsController < ApplicationController
   def create
     @bouquet = Bouquet.new(bouquet_params)
     if @bouquet.save
-      redirect_to root_path, notice: "Bouquet successfully created."
+      redirect_to bouquet_path(@bouquet), notice: "Bouquet successfully created."
     else
       render :new
     end

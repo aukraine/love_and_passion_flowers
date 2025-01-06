@@ -4,8 +4,6 @@ export default class extends Controller {
   static targets = ["fileInput", "preview"];
 
   preview() {
-    console.log("preview");
-
     const files = this.fileInputTarget.files;
     this.previewTarget.innerHTML = "";
 
