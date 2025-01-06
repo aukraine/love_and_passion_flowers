@@ -11,7 +11,10 @@
   </div>
 </section>
 
-<!-- Back Button -->
-<div  class="flex justify-center">
+<!-- Buttons -->
+<div class="flex justify-center space-x-4">
+  <!-- Back Button -->
   <%= link_to "Back to Gallery", bouquets_path, class: "bg-gray-200 text-gray-700 text-lg font-semibold text-center px-4 py-2 rounded-md hover:bg-gray-300 shadow" %>
+  <!-- Edit Button -->
+  <%= link_to "Edit Bouquet", edit_bouquet_path(@bouquet), class: "bg-pink-100 text-pink-800 text-lg font-semibold text-center px-4 py-2 rounded-md hover:bg-pink-700 hover:text-white shadow" %>
 </div>
