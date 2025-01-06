@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   root "application#index"
 
   resources :requests, only: :create
-  resources :bouquets, only: %i[index show new create edit update]
+  resources :bouquets, only: %i[index show new create edit update destroy]
 end

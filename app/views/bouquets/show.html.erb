@@ -12,9 +12,30 @@
 </section>
 
 <!-- Buttons -->
-<div class="flex justify-center space-x-4">
+<div class="flex justify-center space-x-4" data-controller="modal">
   <!-- Back Button -->
   <%= link_to "Back to Gallery", bouquets_path, class: "bg-gray-200 text-gray-700 text-lg font-semibold text-center px-4 py-2 rounded-md hover:bg-gray-300 shadow" %>
   <!-- Edit Button -->
   <%= link_to "Edit Bouquet", edit_bouquet_path(@bouquet), class: "bg-pink-100 text-pink-800 text-lg font-semibold text-center px-4 py-2 rounded-md hover:bg-pink-700 hover:text-white shadow" %>
+  <!-- Delete Button & Modal -->
+  <%= button_tag "Remove Bouquet", type: "button", data: { action: "click->modal#open" },
+                 class: "bg-pink-300 text-pink-800 text-lg text-center font-semibold px-6 py-2 rounded-md hover:bg-pink-700 hover:text-white shadow" %>
+
+  <div data-modal-target="modal" class="modal fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+    <div class="modal-content bg-white rounded-lg shadow-lg p-6 w-4/6 max-w-3xl">
+      <h3 class="text-3xl font-extrabold text-pink-900 mb-4 text-center">Remove Bouquet</h3>
+      <p class="text-gray-600 mb-6">Are you sure? Do you want to remove this bouquet?</p>
+
+      <%= form_with url: bouquet_path(@bouquet), method: :delete, local: true, class: "space-y-4" do |f| %>
+        <!-- Buttons -->
+        <div class="flex justify-center space-x-4">
+          <!-- Cancel Button -->
+          <%= button_tag "Cancel", type: "button", data: { action: "click->modal#close" },
+                         class: "bg-gray-200 text-gray-700 text-lg font-semibold text-center px-4 py-2 rounded-md hover:bg-gray-300 shadow" %>
+          <!-- Submit Button -->
+          <%= f.submit "Yes, remove", class: "bg-pink-300 text-pink-800 text-lg font-semibold text-center px-4 py-2 rounded-md hover:bg-pink-700 hover:text-white shadow" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>

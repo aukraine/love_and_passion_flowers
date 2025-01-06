@@ -1,5 +1,5 @@
 class BouquetsController < ApplicationController
-  before_action :set_bouquet, only: [:show, :edit, :update]
+  before_action :set_bouquet, only: %i[show edit update destroy]
 
   def index
     @bouquets = Bouquet.all
@@ -30,6 +30,11 @@ class BouquetsController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @bouquet.destroy
+    redirect_to bouquets_path, notice: "Bouquet was successfully removed."
   end
 
   private
