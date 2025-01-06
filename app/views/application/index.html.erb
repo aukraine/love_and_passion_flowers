@@ -10,27 +10,44 @@
   </div>
 </section>
 
-<!-- Button to Open Modal -->
-<div data-controller="modal" class="text-center mt-8">
-  <button data-action="click->modal#open" class="bg-pink-100 text-pink-800 text-lg text-center font-semibold px-6 py-2 rounded-md hover:bg-pink-700 hover:text-white">
-    Send Request
-  </button>
+<!-- Send Request Button & Modal -->
+<div data-controller="modal" class="mt-8">
+  <div class="flex justify-center space-x-4">
+    <%= button_tag "Send Request", type: "button", data: { action: "click->modal#open" },
+                   class: "bg-pink-100 text-pink-800 text-lg text-center font-semibold px-6 py-2 rounded-md hover:bg-pink-700 hover:text-white shadow" %>
+  </div>
+
   <div data-modal-target="modal" class="modal fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
     <div class="modal-content bg-white rounded-lg shadow-lg p-6 w-4/6 max-w-3xl">
-      <h3 class="text-2xl font-bold text-pink-600 mb-4">Send Your Request</h3>
-      <%= form_with url: requests_path, method: :post, local: true, class: "space-y-4", id: "requestForm" do |f| %>
+      <h3 class="text-2xl font-bold text-center text-pink-600 mb-4">Send Your Request</h3>
+      <%= form_with url: requests_path, method: :post, local: true, class: "space-y-4", id: "requestForm", data: { controller: "requests--send" } do |f| %>
+
+        <!-- Email Field -->
         <div>
-          <%= f.label :email, "Your Email", class: "block text-sm font-medium text-gray-700" %>
-          <%= f.email_field :email, class: "w-full px-3 py-2 border rounded-lg focus:ring-pink-500 focus:border-pink-500", required: true %>
+          <%= f.label :email, "Email", class: "block text-sm font-medium text-gray-700 mb-1 text-left" %>
+          <%= f.email_field :email, class: "w-full px-3 py-2 border rounded-lg focus:ring-pink-500 focus:border-pink-500",
+                            data: { requests__send_target: "email" } %>
+          <small class="text-pink-700 hidden text-left"></small>
         </div>
+
+        <!-- Message Field -->
         <div>
-          <%= f.label :message, "Your Message", class: "block text-sm font-medium text-gray-700" %>
-          <%= f.text_area :message, class: "w-full px-3 py-2 border rounded-lg focus:ring-pink-500 focus:border-pink-500", required: true %>
+          <%= f.label :message, "Message", class: "block text-sm font-medium text-gray-700 mb-1 text-left" %>
+          <%= f.text_area :message, class: "w-full px-3 py-2 border rounded-lg focus:ring-pink-500 focus:border-pink-500",
+                          data: { requests__send_target: "message" } %>
+          <small class="text-pink-700 hidden text-left"></small>
         </div>
+
+        <!-- Buttons -->
         <div class="flex justify-center space-x-4">
+          <!-- Cancel Button -->
           <%= button_tag "Cancel", type: "button", data: { action: "click->modal#close" },
                          class: "bg-gray-200 text-gray-700 text-lg font-semibold text-center px-4 py-2 rounded-md hover:bg-gray-300 shadow" %>
-          <%= f.submit " Send ", class: "bg-pink-100 text-pink-800 text-lg font-semibold text-center px-4 py-2 rounded-md hover:bg-pink-700 hover:text-white shadow", data: {disable_with: "Sending..."} %>
+
+          <!-- Submit Button -->
+          <%= button_tag "Send", type: "button",
+                         data: { action: "click->requests--send#validateAndSubmit", disable_with: "Sending..." },
+                         class: "bg-pink-100 text-pink-800 text-lg font-semibold text-center px-4 py-2 rounded-md hover:bg-pink-700 hover:text-white shadow" %>
         </div>
       <% end %>
     </div>
