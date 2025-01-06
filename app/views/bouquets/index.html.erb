@@ -5,7 +5,7 @@
     <% @bouquets.each do |bouquet| %>
       <div class="portfolio-item">
         <%= link_to bouquet_path(bouquet) do %>
-          <%= image_tag bouquet.photos.first, class: "w-full h-auto object-cover", alt: bouquet.name %>
+          <%= image_tag bouquet.photos.first, class: "w-full h-auto object-cover rounded-lg shadow-md mb-4", alt: bouquet.name %>
         <% end %>
       </div>
     <% end %>

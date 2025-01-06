@@ -4,7 +4,7 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <% Bouquet.all.sample(3).each do |bouquet| %>
       <div class="portfolio-item">
-        <%= image_tag bouquet.photos.first, class: "w-full h-auto object-cover", alt: bouquet.name %>
+        <%= image_tag bouquet.photos.first, class: "w-full h-auto object-cover rounded-lg shadow-md mb-4", alt: bouquet.name %>
       </div>
     <% end %>
   </div>

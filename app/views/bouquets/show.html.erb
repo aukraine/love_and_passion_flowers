@@ -5,7 +5,7 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <% @bouquet.photos.each do |photo| %>
       <div class="portfolio-item">
-        <%= image_tag photo, class: "w-full h-auto object-cover", alt: @bouquet.name %>
+        <%= image_tag photo, class: "w-full h-auto object-cover rounded-lg shadow-md mb-4", alt: @bouquet.name %>
       </div>
     <% end %>
   </div>
