@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   root "application#index"
 
   resources :requests, only: :create
-  resources :bouquets, only: %i[new create]
+  resources :bouquets, only: %i[index new create]
 end

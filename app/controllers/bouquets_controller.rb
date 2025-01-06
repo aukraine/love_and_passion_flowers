@@ -1,4 +1,8 @@
 class BouquetsController < ApplicationController
+  def index
+    @bouquets = Bouquet.all
+  end
+
   def new
     @bouquet = Bouquet.new
   end
