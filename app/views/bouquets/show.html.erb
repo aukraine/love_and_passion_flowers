@@ -1,0 +1,17 @@
+<!-- Bouquet Section -->
+<section class="portfolio py-8">
+  <h1 class="text-4xl text-gray-700 font-bold mb-6 text-center"><%= @bouquet.name %> bouquet</h1>
+  <p class="text-lg text-gray-700 mb-6"><%= @bouquet.description %></p>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <% @bouquet.photos.each do |photo| %>
+      <div class="portfolio-item">
+        <%= image_tag photo, class: "w-full h-auto object-cover", alt: @bouquet.name %>
+      </div>
+    <% end %>
+  </div>
+</section>
+
+<!-- Back Button -->
+<div  class="flex justify-center">
+  <%= link_to "Back to Gallery", bouquets_path, class: "bg-pink-100 text-pink-800 text-lg font-semibold text-center px-4 py-2 rounded-md hover:bg-pink-700 hover:text-white" %>
+</div>

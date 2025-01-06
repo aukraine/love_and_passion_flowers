@@ -4,7 +4,9 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <% @bouquets.each do |bouquet| %>
       <div class="portfolio-item">
-        <%= image_tag bouquet.photos.first, class: "w-full h-auto object-cover", alt: bouquet.name %>
+        <%= link_to bouquet_path(bouquet) do %>
+          <%= image_tag bouquet.photos.first, class: "w-full h-auto object-cover", alt: bouquet.name %>
+        <% end %>
       </div>
     <% end %>
   </div>

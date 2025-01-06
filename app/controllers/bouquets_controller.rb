@@ -3,6 +3,10 @@ class BouquetsController < ApplicationController
     @bouquets = Bouquet.all
   end
 
+  def show
+    @bouquet = Bouquet.find(params[:id])
+  end
+
   def new
     @bouquet = Bouquet.new
   end
