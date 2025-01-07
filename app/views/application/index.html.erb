@@ -13,6 +13,9 @@
 <!-- Send Request Button & Modal -->
 <div data-controller="modal" class="mt-8">
   <div class="flex justify-center space-x-4">
+    <!-- Go Button -->
+    <%= link_to "Go to Gallery", bouquets_path, class: "bg-pink-100 text-pink-800 text-lg text-center font-semibold px-6 py-2 rounded-md hover:bg-pink-700 hover:text-white shadow" %>
+    <!-- Send Button -->
     <%= button_tag "Send Request", type: "button", data: { action: "click->modal#open" },
                    class: "bg-pink-100 text-pink-800 text-lg text-center font-semibold px-6 py-2 rounded-md hover:bg-pink-700 hover:text-white shadow" %>
   </div>
